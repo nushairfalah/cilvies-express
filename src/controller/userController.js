@@ -44,6 +44,7 @@ module.exports = {
     deleteItem: async (req, res) => {
         const id = parseInt(req.params.id)
         await UserModel.destroy({ where: { id: id } })
+        res.sendStatus(204)
     },
 
 }
