@@ -1,6 +1,25 @@
-const UserModel = require('../model').user
+const UserModel = require('../model').movie
+const { Op } = require('sequelize')
 
 module.exports = {
+    // retrieveAllItem: async (req, res) => {
+    //     try {
+    //         const title = req.query.title
+    //         const allUser = await UserModel.findAll({
+    //             where: {
+    //                 title: { [Op.like]: `%${title}%` },
+    //             }
+    //         })
+    //         // res.render('movies', {
+    //         //     title: title
+    //         // })
+    //         console.log(allUser)
+    //         res.json(allUser)
+    //     } catch (error) {
+    //         res.sendStatus(500)
+    //     }
+    // },
+
     retrieveAllItem: async (req, res) => {
         try {
             const allUser = await UserModel.findAll()

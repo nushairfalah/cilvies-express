@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/users', userRoute)
+app.use('/movies', userRoute)
 
 
 const PORT = process.env.PORT || 3001

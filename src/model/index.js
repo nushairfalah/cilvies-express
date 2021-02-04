@@ -15,5 +15,5 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER,
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-db.user = require('./userModel.js')(sequelize, Sequelize)
+db.movie = require('./userModel.js')(sequelize, Sequelize)
 module.exports = db;
