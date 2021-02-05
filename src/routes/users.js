@@ -3,6 +3,7 @@ const userController = require('../controller/userController')
 
 const router = express.Router()
 
+// router.get('/?title=', userController.searchByTitle)
 router.get('/', userController.retrieveAllItem)
 router.get('/:id', userController.retrieveById)
 router.post('/', userController.createItem)
