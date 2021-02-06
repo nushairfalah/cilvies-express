@@ -2,33 +2,36 @@ const UserModel = require('../model').movie
 const { Op } = require('sequelize')
 
 module.exports = {
-    searchByTitle: async (req, res) => {
+    retrieveAllItem: async (req, res) => {
         try {
             const title = req.query.title
-            const allUser = await UserModel.findAll({
-                where: {
-                    title: { [Op.like]: `%${title}%` },
-                }
-            })
-            // res.render('movies', {
-            //     title: title
-            // })
-            console.log(allUser)
-            res.json(allUser)
+
+            if (title) {
+                const allUser = await UserModel.findAll({
+                    where: {
+                        title: { [Op.like]: `%${title}%` },
+                    }
+                })
+                res.json(allUser)
+            } else {
+                const allUser = await UserModel.findAll()
+                res.json(allUser)
+            }
+
         } catch (error) {
             res.sendStatus(500)
         }
     },
 
-    retrieveAllItem: async (req, res) => {
-        try {
-            const allUser = await UserModel.findAll()
-            console.log(allUser)
-            res.json(allUser)
-        } catch (error) {
-            res.sendStatus(500)
-        }
-    },
+    // retrieveAllItem: async (req, res) => {
+    //     try {
+    //         const allUser = await UserModel.findAll()
+    //         console.log(allUser)
+    //         res.json(allUser)
+    //     } catch (error) {
+    //         res.sendStatus(500)
+    //     }
+    // },
 
     retrieveById: async (req, res) => {
         const id = parseInt(req.params.id)
