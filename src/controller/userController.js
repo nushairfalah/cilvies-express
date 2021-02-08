@@ -13,11 +13,11 @@ module.exports = {
                     }
                 })
                 res.json(allUser)
-                console.log(allUser)
+                // console.log(allUser)
             } else {
                 const allUser = await UserModel.findAll()
                 res.json(allUser)
-                console.log(allUser)
+                // console.log(allUser)
             }
 
         } catch (error) {
